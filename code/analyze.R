@@ -41,12 +41,12 @@ entry_cols = setdiff(
 data_discrepant_all = data_entry[
   , if (uniqueN(.SD, entry_cols) > 1L) .SD, keyby = 'Record ID']
 
-# get discrepant responses that have not been resolved, i.e.,
-# record ids are not in the reconciliation data
+# get discrepant responses that have not been resolved,
+# i.e., record ids not in the reconciliation data
 data_discrepant_unrecon = data_discrepant_all[!data_recon, on = 'Record ID']
 
-# get clean data consisting of data that has been reconciled and
-# data that did not need to be reconciled
+# get clean data consisting of records that have been reconciled
+# and records that did not need to be reconciled
 data_clean = rbind(
   data_recon[
     , c('Record ID', entry_cols), with = FALSE][, was_discrepant := TRUE],
