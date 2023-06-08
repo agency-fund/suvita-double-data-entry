@@ -11,6 +11,7 @@ library('googlesheets4')
 # - added email address in google token as editor to google sheet
 # - added google token json as Secret for GitHub Actions
 
+# authenticate
 if (Sys.getenv('GOOGLE_TOKEN') == '') {
   gs4_auth()
 } else {
