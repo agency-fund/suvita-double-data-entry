@@ -3,8 +3,8 @@ name: ci
 on:
   push:
     branches: [main, master]
-  schedule:
-    - cron: '50 20 * * *'
+  # schedule:
+    # - cron: '50 20 * * *'
 
 concurrency:
   group: ${{ github.ref }}
